@@ -1,0 +1,4 @@
+INSERT INTO clientes (nome, gmail) VALUES
+('Gabrieli Machado', 'gabrielidelrey@gmail.com)'),
+('Vanessa silve', 'Vanessa_Silve02@gmail.com'),
+('Rayanne Guder', 'Rayanne998@gmail.com')
