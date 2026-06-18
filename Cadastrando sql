@@ -1,4 +1,46 @@
+-- Inserindo Clientes --
 INSERT INTO clientes (nome, gmail) VALUES
-('Gabrieli Machado', 'gabrielidelrey@gmail.com)'),
-('Vanessa silve', 'Vanessa_Silve02@gmail.com'),
-('Rayanne Guder', 'Rayanne998@gmail.com')
+--('Gabrieli Machado', 'gabrielidelrey@gmail.com'),
+--('Vanessa silve', 'Vanessa_Silve02@gmail.com'),
+--('Rayanne Guder', 'Rayanne998@gmail.com');
+('Lorenzo bic', 'LorenzoLual9@gmail.com');
+
+-- Inserindo Produtos--
+INSERT INTO produtos (id, nome, preco, estoque) VALUES
+(1, 'vestido de noiva minimalista', 3500.00, 3),
+(2, 'vestido de noive rendado clássico', 6200.00, 2),
+(3, 'vestido de festa longo em Zebelina', 1800.00, 7),
+(4, 'vestido de festa curto em linho com bordado', 850.00, 13),
+(5, 'vestido de madrinha fluido com cedo', 1400.00, 5),
+(6, 'blazer de alfaiataria estruturado', 480.00, 8),
+(7, 'calça pantalona em crepe de alfaiataria', 320.00, 6),
+(8, 'camise de tricoline pima 100% algodão', 260.00, 27),
+(9, 'saia lápis com fenda traseira', 220.00, 22),
+(10, 'colete de alfaiataria forrado', 290.00, 21),
+(11, 'vestido mid casual em viscose premium', 390.00, 10),
+(12, 'conjunto de linho (camisa + short)', 450.00, 7),
+(13, 'macacão longo pantalona', 520.00, 4),
+(14, 'Kimono de seda estampado', 310.00, 8);
+
+-- Inserindo Pedidos--
+INSERT INTO pedidos (id, cliente_id, total) VALUES
+(101, 1, 2800.00), -- 2x Vestido Madrinha (1400.00 cada)
+(102, 3, 7600.00), -- 1x Vestido Noiva Rendado (6200.00) + 1x Vestido Madrinha (1400.00)
+(103, 2, 1700.00), -- 2x Vestido Festa Curto (850.00 cada)
+(104, 3, 3200.00); -- 1x Vestido Festa Longo (1800.00) + 1x Vestido Madrinha (1400.00)
+
+-- Inserindo Itens do Pedido--
+INSERT INTO itens_pedido (pedido_id, produto_id, quantidade, preco_unitario) VALUES
+-- Itens do Pedido 101 (Gabrieli Machado)
+(101, 5, 2, 1400.00),  -- 2x Vestido de madrinha fluido com cedo
+
+-- Itens do Pedido 102 (Rayanne Guder)
+(102, 2, 1, 6200.00),  -- 1x Vestido de noive rendado clássico
+(102, 5, 1, 1400.00),  -- 1x Vestido de madrinha fluido com cedo
+
+-- Itens do Pedido 103 (Vanessa silve)
+(103, 4, 2, 850.00),   -- 2x Vestido de festa curto em linho com bordado
+
+-- Itens do Pedido 104 (Rayanne Guder)
+(104, 3, 1, 1800.00),  -- 1x Vestido de festa longo em Zebelina
+(104, 5, 1, 1400.00);  -- 1x Vestido de madrinha fluido com cedo
