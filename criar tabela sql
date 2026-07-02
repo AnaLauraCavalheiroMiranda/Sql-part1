@@ -33,3 +33,11 @@ CREATE TABLE IF NOT EXISTS itens_pedido (
     FOREIGN KEY (pedido_id) REFERENCES pedidos(id) ON DELETE CASCADE,
     FOREIGN KEY (produto_id) REFERENCES produtos(id)
 );
+CREATE TABLE IF NOT EXISTS agendamentos (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    cliente_id INTEGER NOT NULL,
+    estilo_preferencia TEXT NOT NULL CHECK(estilo_preferencia IN ('minimalista', 'brilhante', 'futurista')),
+    data_solicitacao TEXT DEFAULT CURRENT_TIMESTAMP,
+    status_triagem TEXT DEFAULT 'Pendente' CHECK(status_triagem IN ('Pendente', 'Confirmado', 'Em Orbita')),
+    FOREIGN KEY (cliente_id) REFERENCES clientes(id) ON DELETE CASCADE
+);
