@@ -1,9 +1,18 @@
 -- Inserindo Clientes --
 INSERT INTO clientes (nome, gmail) VALUES
---('Gabrieli Machado', 'gabrielidelrey@gmail.com'),
---('Vanessa silve', 'Vanessa_Silve02@gmail.com'),
---('Rayanne Guder', 'Rayanne998@gmail.com');
-('Lorenzo bic', 'LorenzoLual9@gmail.com');
+('Gabrieli Machado', 'gabrielidelrey@gmail.com'),
+('Vanessa silve', 'Vanessa_Silve02@gmail.com'),
+('Rayanne Guder', 'Rayanne998@gmail.com'),
+('Lorenzo bic', 'LorenzoLual9@gmail.com'),
+('Comandante Silva', 'silva.missao@gmail.com'),
+('Tenente Aurora', 'aurora.boreal@gmail.com'),
+('Major Amundsen', 'amundsen.saturno@gmail.com');
+
+INSERT INTO agendamentos (cliente_id, estilo_preferencia, status_triagem) VALUES
+(4, 'minimalista', 'Confirmado'), -- Comandante Silva escolheu 🌘 Eclipse
+(5, 'futurista', 'Pendente'),      -- Tenente Aurora escolheu ✨ Via Láctea
+(6, 'brilhante', 'Confirmado'),    -- Major Amundsen escolheu 🪐 Saturniano
+(1, 'minimalista', 'Pendente');    -- Lorenzo bic também resolveu agendar uma consulta
 
 -- Inserindo Produtos--
 INSERT INTO produtos (id, nome, preco, estoque) VALUES
@@ -44,3 +53,17 @@ INSERT INTO itens_pedido (pedido_id, produto_id, quantidade, preco_unitario) VAL
 -- Itens do Pedido 104 (Rayanne Guder)
 (104, 3, 1, 1800.00),  -- 1x Vestido de festa longo em Zebelina
 (104, 5, 1, 1400.00);  -- 1x Vestido de madrinha fluido com cedo
+
+-- Cadastra os tripulantes na tabela de clientes
+INSERT OR IGNORE INTO clientes (id, nome, gmail) VALUES
+(1, 'Lorenzo bic', 'LorenzoLual9@gmail.com'),
+(4, 'Comandante Silva', 'silva.missao@galaxia.com'),
+(5, 'Tenente Aurora', 'aurora.boreal@nebula.com'),
+(6, 'Major Amundsen', 'amundsen.saturno@universo.org');
+
+-- Insere os agendamentos vinculados aos clientes acima
+INSERT INTO agendamentos (cliente_id, estilo_preferencia, status_triagem) VALUES
+(4, 'minimalista', 'Confirmado'), -- Comandante Silva
+(5, 'futurista', 'Pendente'),      -- Tenente Aurora
+(6, 'brilhante', 'Confirmado'),    -- Major Amundsen
+(1, 'minimalista', 'Pendente');    -- Lorenzo bic
