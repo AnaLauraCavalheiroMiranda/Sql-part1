@@ -3,9 +3,16 @@ CREATE TABLE IF NOT EXISTS clientes (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     nome TEXT NOT NULL,
     gmail TEXT NOT NULL UNIQUE,
-    data_cadastro TEXT DEFAULT CURRENT_TIMESTAMP
+    data_cadastro TEXT DEFAULT CURRENT_TIMESTAMP,
+  	endereco_id TEXT NOT NULL,
+  	FOREIGN KEY (endereco_id) REFERENCES endereco(id)
 );
-
+-- Tabela endereço--
+CREATE TABLE IF NOT EXISTS endereco (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  rua TEXT NOT NULL,
+  numero INTEGER NOT NULL
+);
 -- Tabela produtos --
 CREATE TABLE IF NOT EXISTS produtos (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -36,6 +43,8 @@ CREATE TABLE IF NOT EXISTS itens_pedido (
 CREATE TABLE IF NOT EXISTS agendamentos (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     cliente_id INTEGER NOT NULL,
+    endereco_id TEXT NOT NULL,
+  	FOREIGN KEY (endereco_id) REFERENCES endereco(id),
     estilo_preferencia TEXT NOT NULL CHECK(estilo_preferencia IN ('minimalista', 'brilhante', 'futurista')),
     data_solicitacao TEXT DEFAULT CURRENT_TIMESTAMP,
     status_triagem TEXT DEFAULT 'Pendente' CHECK(status_triagem IN ('Pendente', 'Confirmado', 'Em Orbita')),
