@@ -1,12 +1,21 @@
 -- 1. Inserindo Clientes (Gerará IDs automáticos: 1 a 7)
-INSERT INTO clientes (nome, gmail) VALUES 
-('Gabrieli Machado', 'gabrielidelrey@gmail.com'),    -- ID 1
-('Vanessa silve', 'Vanessa_Silve02@gmail.com'),       -- ID 2
-('Rayanne Guder', 'Rayanne998@gmail.com'),            -- ID 3
-('Lorenzo bic', 'LorenzoLual9@gmail.com'),            -- ID 4
-('Comandante Silva', 'silva.missao@galaxia.com'),     -- ID 5
-('Tenente Aurora', 'aurora.boreal@nebula.com'),       -- ID 6
-('Major Amundsen', 'amundsen.saturno@universo.org');  -- ID 7
+INSERT INTO clientes (nome, gmail, endereco_id) VALUES 
+('Gabrieli Machado', 'gabrielidelrey@gmail.com'1),    -- ID 1
+('Vanessa silve', 'Vanessa_Silve02@gmail.com'2),       -- ID 2
+('Rayanne Guder', 'Rayanne998@gmail.com'3),            -- ID 3
+('Lorenzo bic', 'LorenzoLual9@gmail.com'4),            -- ID 4
+('Comandante Silva', 'silva.missao@galaxia.com'5),     -- ID 5
+('Tenente Aurora', 'aurora.boreal@nebula.com'6),       -- ID 6
+('Major Amundsen', 'amundsen.saturno@universo.org'7);  -- ID 7
+
+insert into endereco (rua, numero) VALUES
+('dr-xavier', '777'),
+('coelho preto', '0880'),
+('trevo da macumba','666'),
+('ytalo santos', '555'),
+('balao supeito', '876'),
+('jacinto leite', '55554'),
+('shanagames', '699');
 
 -- 2. Inserindo Agendamentos (Apontando para os IDs automáticos dos clientes)
 INSERT INTO agendamentos (cliente_id, estilo_preferencia, status_triagem) VALUES 
@@ -46,4 +55,4 @@ INSERT INTO itens_pedido (pedido_id, produto_id, quantidade, preco_unitario) VAL
 (2, 5, 1, 1400.00), -- Pedido 2, Produto 5 (Vestido Madrinha)
 (3, 4, 2, 850.00),  -- Pedido 3, Produto 4 (Vestido Festa Curto)
 (4, 3, 1, 1800.00), -- Pedido 4, Produto 3 (Vestido Festa Longo)
-(4, 5, 1, 1400.00); -- Pedido 4, Produto 5 (Vestido Madrinha)
+(4, 5, 1, 1400.00); -- Pedido 4, Produto 5 (Vestido Madrinha
