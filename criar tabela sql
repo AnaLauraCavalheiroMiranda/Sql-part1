@@ -40,12 +40,16 @@ CREATE TABLE IF NOT EXISTS itens_pedido (
     FOREIGN KEY (pedido_id) REFERENCES pedidos(id) ON DELETE CASCADE,
     FOREIGN KEY (produto_id) REFERENCES produtos(id)
 );
-CREATE TABLE IF NOT EXISTS agendamentos (
+CREATE TABLE IF NOT EXISTS agendamento (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     cliente_id INTEGER NOT NULL,
-    endereco_id TEXT NOT NULL,
-  	FOREIGN KEY (endereco_id) REFERENCES endereco(id),
-    estilo_preferencia TEXT NOT NULL CHECK(estilo_preferencia IN ('minimalista', 'brilhante', 'futurista')),
+    endereco_id INTEGER NOT NULL, -- Alterado para INTEGER para coincidir com chaves primárias padrão
+    estilo_preferencia TEXT NOT NULL CHECK(estilo_preferencia IN ('minimalista', 'brilhante', 'futurista')), -- Correção do underline
+    data_solicitacao TEXT DEFAULT CURRENT_TIMESTAMP,
+    status_triagem TEXT DEFAULT 'Pendente' CHECK(status_triagem IN ('Pendente', 'Confirmado', 'Em Orbita')),
+    FOREIGN KEY (cliente_id) REFERENCES clientes(id) ON DELETE CASCADE,
+    FOREIGN KEY (endereco_id) REFERENCES endereco(id) ON DELETE CASCADE
+);
     data_solicitacao TEXT DEFAULT CURRENT_TIMESTAMP,
     status_triagem TEXT DEFAULT 'Pendente' CHECK(status_triagem IN ('Pendente', 'Confirmado', 'Em Orbita')),
     FOREIGN KEY (cliente_id) REFERENCES clientes(id) ON DELETE CASCADE
