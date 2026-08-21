@@ -1,6 +1,4 @@
 SELECT 
-    a.id AS id_agendamento,
-    c.id AS id_cliente,
     c.nome AS nome_cliente,
     c.gmail AS frequencia_digital,
     CASE 
@@ -10,6 +8,7 @@ SELECT
     END AS armadura_escolhida,
     a.data_solicitacao AS data_sinal,
     a.status_triagem AS status_missao
-FROM agendamentos a
+FROM agendamento a
 INNER JOIN clientes c ON a.cliente_id = c.id
-ORDER BY a.id ASC;
+ORDER BY a.data_solicitacao ASC, c.nome ASC; -- Ordenado por data (mais antiga primeiro) e por nome
+
